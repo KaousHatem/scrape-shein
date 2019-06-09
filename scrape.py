@@ -106,6 +106,7 @@ def main():
 	all_products = []
 	with session.request(method='GET',url=url,headers=get_header()) as response:
 		text_html = response.text
+		print(text_html)
 		soup = get_soup(text_html)
 		log_d('getting main categories')
 		categories = get_main_categories(soup)
