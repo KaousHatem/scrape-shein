@@ -94,7 +94,7 @@ def get_products_by_page(page_link):
 		div = soup.findAll('div',class_='row')[1]
 		list_div = get_soup(str(div)).findAll('div',class_='c-goodsli')
 		print (len(list_div))
-		# products = get_product_thread(list_div)
+	
 		threads = list()
 		nb_thread = 20
 		for index in range(nb_thread):
@@ -105,25 +105,6 @@ def get_products_by_page(page_link):
 
 		for thread in threads:
 			thread.join()
-
-		# for i in iter(my_queue.get,None):
-		# 	products += i
-
-		# for div in list_div[0:10]:
-
-		# 	product = dict()
-		# 	link = get_soup(str(div)).find('a',class_='j-item-msg')
-		# 	product['name'] = link.get('title')
-		# 	log_d('getting product '+str(list(list_div).index(div)+1)+'/'+str(len(list(list_div)))+': '+product['name'])
-		# 	product['id'] = link.get('data-id')
-		# 	product['price'] = link.get('data-price')+'€'
-		# 	link_product = BASE_URL+link.get('href')
-		# 	product_info = get_product_info(link_product)
-		# 	product.update(product_info)
-		# 	download_image(product)
-
-		# 	print(product)
-		# 	products.append(product)
 
 
 	return products
